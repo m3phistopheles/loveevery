@@ -1,0 +1,24 @@
+{
+  "name": "loveevery",
+  "version": "1.0.0",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:version": "cypress version",
+    "cypress:verify": "cypress verify",
+    "cypress: open": "cypress open",
+    "cypress:run": "cypress run",
+    "cypress:run:chrome": "cypress run --browser chrome", 
+    "cypress:run:headed": "cypress run --headed"
+  },
+  "author": "vero",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "cypress": "^4.10.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/m3phistopheles/loveevery.git"
+  }
+}
