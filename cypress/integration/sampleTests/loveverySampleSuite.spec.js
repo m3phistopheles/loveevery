@@ -8,17 +8,6 @@ context('loveverySampleSuite', () => {
     .get('.template-index').should('be.visible')
   })
 
-// after each test, navigate to home page and sign out of the account. This can also be saved as a custom command
- afterEach(() => {
-    cy.visit('https://lovevery-kits.myshopify.com/')
-    .get('.template-index').should('be.visible')
-    .get('#my-account-popover').click()
-    // when you see .eq(1-4), that means there are multiple instances of the selector that is called. .eq specifies which one on the page should be selected. This is easier than creating a specific id for each duplicated element within a webpage.
-
-    // {force:true} this forces cypress to select hidden elements, which is handy for selecting dropdowns, which is always a pain.
-    .get('a[href*="/account/logout"]').eq(0).click({force:true})
-  })
-
 // This function is a for loop that randomizes characters to generate a string set to the limit sepcified in the test when 'randomString' is called. There are multiple ways to handle randomizing emails or strings, cypress has a lot of add-on tools that will generate randomized data but I wanted write something of my own for this. This function can also be stored as a custom command to be used over all tests/suites.
 function generateRandom(string_length) {
     let randomString = "";
@@ -62,6 +51,7 @@ function generateRandom(string_length) {
       .get('.btn.btn-default.btn-fullwidth').should('contain', 'Join Us').click()
       .get('.nav-item').should('contain', fname)
   })
+    // when you see .eq(1-4), that means there are multiple instances of the selector that is called. .eq specifies which one on the page should be selected. This is easier than creating a specific id for each duplicated element within a webpage.
 
     it('shop play gym', () => {
       cy.get('a[href*="/products/the-play-gym"]').eq(2).click()
@@ -110,6 +100,9 @@ function generateRandom(string_length) {
     })
 
     it('subscribe to playkits', () => {
+
+        // {force:true} this forces cypress to select hidden elements, which is handy for selecting dropdowns, which is always a pain.
+
       cy.get('a[href*="/products/the-play-kits"]').eq(0).click({force:true})
 
       .get('#play-kits-subscription-program').should('be.visible')
